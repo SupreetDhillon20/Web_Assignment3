@@ -1,0 +1,39 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background-color: #333;
+  color: white;
+  padding: 20px;
+}
+
+.companyInfo, .contactInfo {
+  flex: 1;
+}
+
+.footerNavLinks {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+  align-items: center;
+}
+
+.footerNavLinks li {
+  margin: 0;
+}
+
+.footerNavLinks a {
+  color: white;
+  text-decoration: none;
+  font-size: 1em;
+}
+
+.footerNavLinks a:hover {
+  text-decoration: underline;
+}
+
+.contactInfo p, .companyInfo p {
+  margin: 5px 0;
+}
