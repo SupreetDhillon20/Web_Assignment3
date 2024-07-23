@@ -1,0 +1,66 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  padding: 10px 20px;
+  color: white;
+}
+
+.logo a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.navLinks {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.navLinks li {
+  margin: 0;
+}
+
+.navLinks a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2em;
+}
+
+.navLinks a:hover {
+  text-decoration: underline;
+}
+
+.profile {
+  position: relative;
+  cursor: pointer;
+}
+
+.profileIcon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.dropdown {
+  position: absolute;
+  right: 0;
+  background-color: #444;
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdown a {
+  color: white;
+  text-decoration: none;
+  padding: 5px 0;
+}
+
+.dropdown a:hover {
+  text-decoration: underline;
+}
