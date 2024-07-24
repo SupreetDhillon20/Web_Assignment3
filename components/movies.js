@@ -79,7 +79,7 @@ const Movies = () => {
   return (
     <div className="container mx-auto p-4">
       <main className="flex flex-col items-center">
-        <h1 className="text-3xl font-bold mb-4">Movies List</h1>
+        <h1 className="text-3xl font-bold mb-4">Movies</h1>
         <ul className="w-full max-w-4xl space-y-4">
           {movies.length === 0 ? (
             <p>No movies available.</p>
