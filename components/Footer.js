@@ -12,18 +12,18 @@ const Footer = () => {
           <p>&copy; 2023 Internet Movies Rental Company</p>
         </div>
         <div className="mb-4 text-left">
-            <p>
+            <div>
                 <p className='font-bold'>Address:</p>
                 123 Movie Lane, Filmtown<br />
                 Calgary, AB, T1K 1L3
-            </p>
+            </div>
         </div>
         <div className="mb-4 text-left">
-            <p>
+            <div>
                 <p className='font-bold'>Contact Information:</p>
                 Phone: (338) 456-7890<br />
                 Email: <a href="mailto:support@imrcompany.com" className='text-white hover:text-blue-500'>support@imrcompany.com</a>
-            </p>
+            </div>
         </div>
         <div>
             <p>
