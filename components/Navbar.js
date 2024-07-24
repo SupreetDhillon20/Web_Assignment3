@@ -1,4 +1,9 @@
-import Link from 'next/link';
+import Link from 'next/link'; // Import Link component from Next.js for client-side navigation
+
+/**
+ * Navbar component that displays navigation links for the application.
+ * @returns {JSX.Element} - The rendered navbar component with navigation links.
+ */
 
 const Navbar = () => {
   return (
