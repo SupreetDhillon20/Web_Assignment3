@@ -49,12 +49,12 @@ const About = () => {
           <h2 className="text-2xl font-semibold mb-2">What Our Customers Say</h2>
           <div className="border rounded-md p-4 shadow-lg mb-4">
             <p className="italic">
-              "IMR Company has transformed the way I watch movies. The selection is fantastic, and the service is unparalleled!" - Alex Johnson
+              &quot;IMR Company has transformed the way I watch movies. The selection is fantastic, and the service is unparalleled!&quot; - Alex Johnson
             </p>
           </div>
           <div className="border rounded-md p-4 shadow-lg">
             <p className="italic">
-              "I love the convenience of renting movies online. IMR Company makes it easy to find and enjoy my favorite films." - Emily Davis
+              &quot;I love the convenience of renting movies online. IMR Company makes it easy to find and enjoy my favorite films.&quot; - Emily Davis
             </p>
           </div>
         </section>
