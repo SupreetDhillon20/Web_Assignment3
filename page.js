@@ -1,4 +1,9 @@
-import Movies from "./components/movies";
+import Movies from "./components/movies"; // Import the Movies component
+
+/**
+ * Home component that serves as the main entry point of the application.
+ * @returns {JSX.Element} - The rendered home page component.
+ */
 
 export default function Home() {
   return (
