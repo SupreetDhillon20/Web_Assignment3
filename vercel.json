@@ -3,28 +3,50 @@
   "builds": [
     {
       "src": "package.json",
-      "use": "@vercel/node",
-      "config": {
-        "zeroConfig": true
-      }
-    },
-    {
-      "src": "pages/**/*.js",
       "use": "@vercel/next"
     }
   ],
   "routes": [
     {
-      "src": "/api/movies",
-      "dest": "/api/movies"
-    },
-    {
-      "src": "/api/movies/(.*)",
-      "dest": "/api/movies/$1"
+      "src": "/api/(.*)",
+      "dest": "/api/$1"
     },
     {
       "src": "/(.*)",
       "dest": "/$1"
     }
-  ]
+  ],
+  "rewrites": [
+    {
+      "source": "/old-route",
+      "destination": "/new-route"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/old-page",
+      "destination": "/new-page",
+      "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "max-age=3600"
+        }
+      ]
+    }
+  ],
+  "env": {
+    "DATABASE_URL": "@my-database-url",
+    "API_KEY": "@my-api-key"
+  },
+  "functions": {
+    "api/**/*.js": {
+      "maxDuration": 10
+    }
+  }
 }
