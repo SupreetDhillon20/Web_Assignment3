@@ -1,4 +1,10 @@
-import React from 'react';
+import React from 'react'; // Import React library
+
+/**
+ * Footer component that displays company information and contact details.
+ * @returns {JSX.Element} - The rendered footer component.
+ */
+
 const Footer = () => {
     return (
       <footer className="bg-gray-800 p-4 text-center text-white">
