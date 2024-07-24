@@ -1,27 +1,45 @@
-'use client';
+'use client'; // Indicates that this component should be rendered on the client side
 
-import { useState, useEffect } from 'react';
-import axios from 'axios';
+import { useState, useEffect } from 'react'; // Import React hooks for managing state and side effects
+import axios from 'axios'; // Import axios for making HTTP requests
+
+/**
+ * Movies component that displays and manages a list of movies.
+ * @returns {JSX.Element} - The rendered movies component with functionality to add, edit, and delete movies.
+ */
 
 const Movies = () => {
+  // State for storing the list of movies
   const [movies, setMovies] = useState([]);
+  // State for storing the new movie form data
   const [newMovie, setNewMovie] = useState({ title: '', actors: '', year: '' });
+  // State for managing the ID of the movie being edited
   const [editingMovieId, setEditingMovieId] = useState(null);
+  // State for storing the movie data while editing
   const [editingMovie, setEditingMovie] = useState({ title: '', actors: '', year: '' });
 
+  // Fetch movies from the API when the component mounts
   useEffect(() => {
     fetchMovies();
   }, []);
+  
+  /**
+   * Fetches the list of movies from the API.
+   */
 
   const fetchMovies = async () => {
     try {
       const response = await axios.get('/api/movies');
-      setMovies(response.data);
+      setMovies(response.data);// Update the state with the fetched movies
     } catch (error) {
-      console.error('Error fetching movies:', error);
+      console.error('Error fetching movies:', error); // Log any errors that occur
     }
   };
 
+  /**
+   * Handles the addition of a new movie.
+   */
+  
   const handleAddMovie = async () => {
     try {
       const response = await axios.post('/api/movies', {
@@ -29,10 +47,10 @@ const Movies = () => {
         year: newMovie.year,
         actors: newMovie.actors.split(',').map(actor => actor.trim()),
       });
-      fetchMovies(); // Refresh the movie list
-      setNewMovie({ title: '', actors: '', year: '' }); // Reset the form
+      fetchMovies(); // Refresh the movie list  // Refresh the movie list
+      setNewMovie({ title: '', actors: '', year: '' }); // Reset the form 
     } catch (error) {
-      console.error('Error adding movie:', error);
+      console.error('Error adding movie:', error); // Log any errors that occur
     }
   };
 
@@ -41,15 +59,25 @@ const Movies = () => {
       await axios.delete(`/api/movies`, { data: { id } });
       fetchMovies(); // Refresh the movie list
     } catch (error) {
-      console.error('Error deleting movie:', error);
+      console.error('Error deleting movie:', error); // Log any errors that occur
     }
   };
 
+  /**
+   * Handles the deletion of a movie by its ID.
+   * @param {string} id - The ID of the movie to be deleted.
+   */
+  
   const handleEditMovie = (movie) => {
     setEditingMovieId(movie.id);
     setEditingMovie({ title: movie.title, actors: movie.actors.join(', '), year: movie.year });
   };
 
+    /**
+   * Saves the edited movie data.
+   * @param {string} id - The ID of the movie to be updated.
+   */
+  
   const handleSaveMovie = async (id) => {
     try {
       const response = await axios.patch(`/api/movies`, {
@@ -62,9 +90,14 @@ const Movies = () => {
       setEditingMovieId(null); // Exit edit mode
       setEditingMovie({ title: '', actors: '', year: '' }); // Reset the editing form
     } catch (error) {
-      console.error('Error saving movie:', error);
+      console.error('Error saving movie:', error); // Log any errors that occur
     }
   };
+
+  /**
+   * Handles changes in the new movie form fields.
+   * @param {Object} e - The event object containing the form data.
+   */
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -76,6 +109,11 @@ const Movies = () => {
     setEditingMovie((prevState) => ({ ...prevState, [name]: value }));
   };
 
+  /**
+   * Handles changes in the editing movie form fields.
+   * @param {Object} e - The event object containing the form data.
+   */
+  
   return (
     <div className="container mx-auto p-4">
       <main className="flex flex-col items-center">
