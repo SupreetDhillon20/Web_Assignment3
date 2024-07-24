@@ -1,21 +1,31 @@
-'use client';
+'use client'; // Indicates that this component should be rendered on the client side
 
-import { useEffect, useState } from 'react';
-import axios from 'axios';
+import { useEffect, useState } from 'react'; // Import React hooks for managing state and side effects
+import axios from 'axios'; // Import axios for making HTTP requests
+
+/**
+ * MoviesList component that fetches and displays a list of movies.
+ * @returns {JSX.Element} - The rendered movies list component.
+ */
 
 const MoviesList = () => {
+   // State for storing the list of movies
   const [movies, setMovies] = useState([]);
-
+// Fetch movies from the API when the component mounts
   useEffect(() => {
     fetchMovies();
   }, []);
 
+  /**
+   * Fetches the list of movies from the API and updates the state.
+   */
+  
   const fetchMovies = async () => {
     try {
       const response = await axios.get('/api/movies');
-      setMovies(response.data);
+      setMovies(response.data); // Update the state with the fetched movies
     } catch (error) {
-      console.error('Error fetching movies:', error);
+      console.error('Error fetching movies:', error); // Log any errors that occur
     }
   };
 
