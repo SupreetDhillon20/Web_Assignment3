@@ -1,20 +1,10 @@
-import '../globals.css';
+import Movies from "./components/movies";
 
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />;
-}
-
-export default MyApp;
-
-import Layout from '../components/Layout';
-
-const Page = () => {
+export default function Home() {
   return (
-    <Layout>
-      {/* Your page content */}
-    </Layout>
+    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+        <h1>Welcome to IMR Company</h1>
+        <Movies/>
+    </main>
   );
-};
-
-export default Page;
-
+}
